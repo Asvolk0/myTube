@@ -2,7 +2,7 @@
     
     <nav class="{% if app.user %}primaryCo{% else %}primary{% endif %}">
 
-        <div>
+        <div class="burgerLogo">
             <div id="menuBurger" class="{% if app.user %}primaryICoHover{% else %}primaryIHover{% endif %}">
                 <span class="{% if app.user %}primaryICo{% else %}primaryI{% endif %}"></span>
                 <span class="{% if app.user %}primaryICo{% else %}primaryI{% endif %}"></span>
@@ -20,17 +20,25 @@
             </a>
         </div>
 
+        <div class="search">
 
-        {% if app.user %}
-            <!-- <a href="{{ path('app_logout') }}">Se déconnecter</a> -->
-            <div class="logoUser">
-                <img src="{{ asset('assets/img/account.png') }}" alt="logo de l'utilisateur">
-            </div>
+            <img src="
+                    {% if app.user %}
+                        {{ asset('assets/img/loupeCo.png') }}
+                    {% else %}
+                        {{ asset('assets/img/loupe.png') }}
+                    {% endif %}" alt="Logo de recherche">
+            {% if app.user %}
+                <!-- <a href="{{ path('app_logout') }}">Se déconnecter</a> -->
+                <div class="logoUser">
+                    <img src="{{ asset('assets/img/account.png') }}" alt="logo de l'utilisateur">
+                </div>
 
-        {% else %}
-            {# <a href="{{ path('app_register') }}">Créer un compte</a> #}
-            <a href="{{ path('app_login') }}">Se connecter</a>
-        {% endif %}
+            {% else %}
+                {# <a href="{{ path('app_register') }}">Créer un compte</a> #}
+                <a href="{{ path('app_login') }}">Se connecter</a>
+            {% endif %}
+        </div>
 
     
     </nav>
